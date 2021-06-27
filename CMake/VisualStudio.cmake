@@ -1,0 +1,5 @@
+set(VSWHERE "$ENV{ProgramFiles\(x86\)}/Microsoft Visual Studio/Installer/vswhere.exe")
+execute_process(COMMAND ${VSWHERE} -latest -property installationPath OUTPUT_VARIABLE VS_ROOT_DIR)
+string(REPLACE "\n" "" VS_ROOT_DIR ${VS_ROOT_DIR})
+string(REPLACE "\\" "/" VS_ROOT_DIR ${VS_ROOT_DIR})
+set(VS_DEV_CMD "${VS_ROOT_DIR}/Common7/Tools/VsDevCmd.bat")
